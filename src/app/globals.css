@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* ==============================================
+   TASTY BITES BY BATUL — Design System Tokens
+   ============================================== */
+
+@theme {
+  /* ---- Backgrounds ---- */
+  --color-cream: #FFF9F5;
+  --color-cream-dark: #F3EBE2;
+  --color-blush: #F5E1DC;
+
+  /* ---- Brand ---- */
+  --color-navy: #1B2A4A;
+  --color-navy-light: #2D4A7A;
+  --color-rose: #D4A5A5;
+  --color-gold: #C9A96E;
+  --color-gingham: #4A6FA5;
+
+  /* ---- Neutrals & Text ---- */
+  --color-warm-brown: #5C4F44;
+  --color-taupe: #8A7F77;
+  --color-border: #E8DDD4;
+  --color-border-light: #F0E8E0;
+
+  /* ---- Typography ---- */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-dm-sans);
+}
+
+
+/* ==============================================
+   Base Styles
+   ============================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-warm-brown);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+::selection {
+  background-color: var(--color-blush);
+  color: var(--color-navy);
+}
+
+
+/* ==============================================
+   Reduced Motion
+   ============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
