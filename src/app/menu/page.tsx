@@ -24,7 +24,7 @@ const MENU_DATA: MenuCategory[] = [
     title: "Gourmet Cookies",
     items: [
       {
-        name: "Classic Flavours",
+        name: "Premium Flavours",
         price: "6 pieces — ₹800",
         flavours: [
           "Marshmallow Cookies",
@@ -38,7 +38,7 @@ const MENU_DATA: MenuCategory[] = [
         ]
       },
       {
-        name: "Premium Flavours",
+        name: "Classic Flavours",
         price: "6 pieces — ₹600",
         flavours: [
           "Brown Butter Chocolate Chip Cookies"

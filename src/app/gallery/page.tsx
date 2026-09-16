@@ -76,7 +76,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       "Premium couverture chocolate shaped into satisfying bites — a balance of smooth melt and delicate crunch.",
   },
   {
-    filename: "Korean Cream Cheese Buns.jpg",
+    filename: "Korean Cream Cheese Buns New.jpg",
     name: "Korean Cream Cheese Buns",
     description:
       "Soft, garlicky buns with a rich cream cheese filling — savoury, fragrant and irresistibly warm.",

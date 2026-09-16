@@ -15,11 +15,8 @@ export default function AboutPage() {
       <section className={cn(sectionPadding.default, "pt-32 lg:pt-48 pb-12 lg:pb-16")}>
         <div className={container.narrow}>
           <ScrollReveal className="flex flex-col items-center text-center mb-16 md:mb-24">
-            <span className="text-[13px] md:text-sm font-medium uppercase tracking-[0.25em] text-taupe mb-4 block">
-              My Story
-            </span>
             <SectionHeading
-              title="Our Story 🍪"
+              title="My Story 🍪"
               align="center"
               ornament={true}
             />
