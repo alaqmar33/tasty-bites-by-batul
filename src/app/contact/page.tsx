@@ -24,7 +24,7 @@ const CONTACT_INFO: ContactSection[] = [
   {
     heading: "Contact",
     items: [
-      { label: "Phone", value: "9162245253", href: "tel:9162245253" },
+      { label: "Phone", value: "9152245253", href: "tel:9152245253" },
       { label: "WhatsApp", value: "9152245253", href: "https://wa.me/9152245253" },
       { label: "Email", value: "batulamreliwala12@gmail.com", href: "mailto:batulamreliwala12@gmail.com" },
     ],

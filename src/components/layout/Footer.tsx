@@ -34,8 +34,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-warm-brown text-[16px] md:text-sm">
               <li>
-                <a href="tel:9162245253" className="hover:text-rose transition-colors">
-                  Phone: 9162245253
+                <a href="tel:9152245253" className="hover:text-rose transition-colors">
+                  Phone: 9152245253
                 </a>
               </li>
               <li>
