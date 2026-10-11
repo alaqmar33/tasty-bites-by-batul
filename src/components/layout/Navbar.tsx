@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { name: "Gallery", href: "/gallery" },
   { name: "Customer Reviews", href: "/reviews" },
   { name: "Contact", href: "/contact" },
+  { name: "Write a Review", href: "/write-a-review" },
 ];
 
 export default function Navbar() {
@@ -103,12 +104,12 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            <div className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-7">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-warm-brown hover:text-navy transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy rounded-sm"
+                  className="text-[13px] lg:text-sm font-medium text-warm-brown hover:text-navy transition-colors whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy rounded-sm"
                 >
                   {link.name}
                 </Link>
@@ -166,14 +167,14 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-cream flex flex-col md:hidden pt-24 pb-8 px-6"
+            className="fixed inset-0 z-40 bg-cream flex flex-col md:hidden pt-24 pb-8 px-6 overflow-y-auto"
             variants={shouldReduceMotion ? {} : menuVariants}
             initial="closed"
             animate="open"
             exit="closed"
           >
             <motion.div 
-              className="flex-1 flex flex-col justify-center gap-6"
+              className="flex-1 flex flex-col justify-center gap-3.5 sm:gap-5 py-4"
               variants={shouldReduceMotion ? {} : containerVariants}
             >
               {NAV_LINKS.map((link) => (
@@ -181,7 +182,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={closeMenu}
-                    className="block font-serif text-3xl text-navy hover:text-navy-light transition-colors"
+                    className="block font-serif text-2xl sm:text-3xl text-navy hover:text-navy-light transition-colors"
                   >
                     {link.name}
                   </Link>

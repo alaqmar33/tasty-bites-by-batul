@@ -5,16 +5,20 @@ import ScrollReveal from "@/components/animation/ScrollReveal";
 import StaggerContainer, { StaggerItem } from "@/components/animation/StaggerContainer";
 import { cn } from "@/lib/utils";
 
+type FlavourItem = string | { name: string; price: string };
+
 type MenuItem = {
   name: string;
   price?: string;
   note?: string;
-  flavours?: string[];
+  footerNote?: string;
+  flavours?: FlavourItem[];
 };
 
 type MenuCategory = {
   id: string;
   title: string;
+  dietary?: string;
   items: MenuItem[];
 };
 
@@ -22,6 +26,7 @@ const MENU_DATA: MenuCategory[] = [
   {
     id: "gourmet-cookies",
     title: "Gourmet Cookies",
+    dietary: "Eggless",
     items: [
       {
         name: "Premium Flavours",
@@ -49,32 +54,26 @@ const MENU_DATA: MenuCategory[] = [
   {
     id: "berliners",
     title: "Berliners",
+    dietary: "Eggless option available",
     items: [
       {
         name: "Flavours",
+        footerNote: "6-piece box — ₹1000",
         flavours: [
-          "Chocolate",
-          "Tiramisu",
-          "Vanilla",
-          "Salted Caramel Mousse",
-          "Nutella",
-          "Cookie and Cream"
+          { name: "Chocolate", price: "₹130" },
+          { name: "Tiramisu", price: "₹130" },
+          { name: "Vanilla", price: "₹130" },
+          { name: "Salted Caramel Mousse", price: "₹130" },
+          { name: "Nutella", price: "₹150" },
+          { name: "Cookie and Cream", price: "₹130" }
         ]
-      },
-      {
-        name: "Nutella",
-        price: "₹150 per piece",
-        note: "6-piece box — ₹1000"
-      },
-      {
-        name: "Other flavours",
-        price: "₹130 per piece"
       }
     ]
   },
   {
     id: "brownies",
     title: "Brownies",
+    dietary: "Eggless option available",
     items: [
       {
         name: "Brownie Box",
@@ -196,10 +195,17 @@ export default function MenuPage() {
           <section key={category.id} id={category.id} className="scroll-mt-48">
             <div className={cn(container.narrow, "max-w-3xl mx-auto")}>
               <ScrollReveal>
-                <div className="flex items-center gap-5 mb-10">
-                  <h2 className="font-serif text-[28px] md:text-[32px] lg:text-[36px] text-navy whitespace-nowrap">
-                    {category.title}
-                  </h2>
+                <div className="flex items-center gap-3 sm:gap-5 mb-10">
+                  <div className="flex items-baseline gap-2.5 sm:gap-3 flex-wrap shrink-0">
+                    <h2 className="font-serif text-[28px] md:text-[32px] lg:text-[36px] text-navy">
+                      {category.title}
+                    </h2>
+                    {category.dietary && (
+                      <span className="text-xs sm:text-sm font-sans font-medium text-rose tracking-wide">
+                        ({category.dietary})
+                      </span>
+                    )}
+                  </div>
                   <div className="h-px w-full flex-grow bg-border" />
                 </div>
               </ScrollReveal>
@@ -225,13 +231,35 @@ export default function MenuPage() {
 
                     {item.flavours && item.flavours.length > 0 && (
                       <ul className="flex flex-col space-y-2.5 mt-1">
-                        {item.flavours.map((flavour) => (
-                          <li key={flavour} className="text-warm-brown text-base flex items-start">
-                            <span className="mr-3 text-taupe/60">•</span>
-                            <span>{flavour}</span>
-                          </li>
-                        ))}
+                        {item.flavours.map((flavour) => {
+                          const isObj = typeof flavour === "object" && flavour !== null;
+                          const name = isObj ? flavour.name : flavour;
+                          const price = isObj ? flavour.price : null;
+
+                          return (
+                            <li 
+                              key={name} 
+                              className="text-warm-brown text-base flex items-baseline justify-between gap-3 sm:gap-4"
+                            >
+                              <div className="flex items-start min-w-0 pr-2">
+                                <span className="mr-3 text-taupe/60 shrink-0 select-none">•</span>
+                                <span className="break-words">{name}</span>
+                              </div>
+                              {price && (
+                                <span className="font-medium text-rose whitespace-nowrap text-sm sm:text-base shrink-0 text-right">
+                                  — {price}
+                                </span>
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
+                    )}
+
+                    {item.footerNote && (
+                      <p className="text-sm text-taupe font-normal italic mt-3.5">
+                        {item.footerNote}
+                      </p>
                     )}
                   </StaggerItem>
                 ))}

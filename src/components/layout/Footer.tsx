@@ -111,6 +111,11 @@ export default function Footer() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link href="/write-a-review" className="hover:text-rose transition-colors">
+                    Write a Review
+                  </Link>
+                </li>
               </ul>
           </div>
 
